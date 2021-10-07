@@ -1,0 +1,1 @@
+﻿INSERT INTO [dbo].[IdentityUserRole] ([UserId], [RoleId], [IdentityRole_Id], [ApplicationUser_Id]) VALUES (N'36d0fb01-affb-4707-bc21-48dc9386ba22', N'940ec1fc-2d1b-4427-9af5-5bd84809d589', NULL, NULL)

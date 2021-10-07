@@ -1,0 +1,154 @@
+﻿@model WinnersIndy.Model.MemberFolder.MemberCreate
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Add New Member</h2>
+
+
+@using (Html.BeginForm("Create", "Member", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @*<h4>MemberCreate</h4>*@
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2 colum-head-color" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", placeholder = "First Name" })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2 colum-head-color" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", placeholder = "Last Name" })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2 colum-head-color" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", maxLength = "10", placeholder = "Phone Number" })
+                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmailAddress, htmlAttributes: new { @class = "control-label col-md-2 colum-head-color" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control", placeholder = "Email Address" })
+                @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateOfBirth, htmlAttributes: new { @class = "control-label col-md-2 colum-head-color" })
+            <div class="col-md-10">
+                <input type="date" name="DateOfBirth" value="DateOfBirth" id="DateOfBirth" />
+                @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2 colum-head-color" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Address, new { @class = "form-control", placeholder = "Address" })
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaritalStatus, htmlAttributes: new { @class = "control-label col-md-2 colum-head-color" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.MaritalStatus, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaritalStatus, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Families, htmlAttributes: new { @class = "control-label col-md-2 colum-head-color" })
+            <div class="col-md-10">
+                @*@Html.DropDownListFor(model => model.Families, new SelectList(Model.Families.Select(x => new { FamilyId = x.FamilyId, FamilyName = x.FamilyName }),"FamilyId","FamilyName",Model.Families),"Select Family",
+                    new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownListFor(model => model.FamilyId, ViewBag.MyList as SelectList, new { @class = "form-control" })
+
+
+
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2 colum-head-color" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div class=" form-group">
+            @Html.LabelFor(model => model.File, htmlAttributes: new { @class = "control-label col-md-2 colum-head-color" })
+            <div class="col-md-10">
+                <input type="file" name="file" id="image_file" />
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<div>
+    @Html.ActionLink(" Back", "Index", null, htmlAttributes: new { @class = "glyphicon glyphicon-arrow-left btn btn-success" })
+</div>
+<style>
+    .column-header {
+        background-color: lightgrey;
+    }
+
+    .table-body {
+        box-shadow: 0 0 15px 0;
+    }
+
+    .colum-head-color {
+        color: indigo;
+        font-family: 'Global Monospace';
+        font-size: 2rem;
+    }
+
+    .class-header {
+        font-family: 'Global Monospace';
+        color: darkblue;
+    }
+
+    .member td {
+    }
+
+    #Search {
+        background-color: lightskyblue
+    }
+
+    .movie-one {
+        color: indigo;
+        text-align: center
+    }
+
+    .two {
+        background-color: royalblue
+    }
+</style>

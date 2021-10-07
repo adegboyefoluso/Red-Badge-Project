@@ -1,0 +1,156 @@
+﻿@model PagedList.IPagedList<WinnersIndy.Model.Contact.ContactListItem>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+@*<p>
+        @Html.ActionLink("Add New Member", "Create",null, htmlAttributes: new { @class = " btn btn-success movie-one" }) | @Html.ActionLink("List of Children", "GetChildren")| @Html.ActionLink("Send Email To Members", "SendBulkEmail")
+        <br />
+    </p>*@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            @Html.ActionLink("Add New Contact", "Create", null, htmlAttributes: new { @class = " btn btn-primary two " })
+        </div>
+        @*<div class="col-md-4">
+                @Html.ActionLink(" List Of Children", "GetChildren", null, htmlAttributes: new { @class = " btn btn-primary  glyphicon glyphicon-list two" })
+            </div>*@
+        <div class="col-md-6">
+            @Html.ActionLink(" Push Notification", "SendBulkEmail", null, htmlAttributes: new { @class = " btn btn-primary  glyphicon glyphicon-envelope two" })
+        </div>
+    </div>
+</div>
+
+
+<h2 class="class-header">Contacts </h2>
+
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
+
+@using (Html.BeginForm("Index", "Contact", FormMethod.Get))
+{
+    <p>
+        Find by Last Name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" id="Search" />
+    </p>
+}
+<table class="table table-body">
+    <tr class="column-header">
+
+        <th class="colum-head-color ">
+            @*@Html.DisplayNameFor(model => model.FirstName)*@
+            First Name
+        </th>
+        <th class="colum-head-color ">
+            @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter }, new { @class = "glyphicon glyphicon-sort" })
+        </th>
+        <th class="colum-head-color ">
+            @*@Html.DisplayNameFor(model => model.PhoneNumber*@
+            Phone Number
+        </th>
+        <th class="colum-head-color ">
+            @*@Html.DisplayNameFor(model => model.EmailAddress)*@
+            Member First Name
+        </th>
+        <th class="colum-head-color ">
+            @*@Html.ActionLink("Date of Birth", "Index", new { sortOrder = ViewBag.DateSortParm }, new { @class = "glyphicon glyphicon-sort" })*@
+            Member Last Name
+
+        </th>
+        <th class="colum-head-color ">
+            Action
+        </th>
+        @*<th></th>*@
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="member">
+
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MemberFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MemberLastName)
+            </td>
+            @*<td>
+                            @Html.ActionLink("Send Email", "Email", new
+                            {
+                                id = item.MemberId
+                })
+                        </td>*@
+
+            <td>
+                @Html.ActionLink(" Update", "Edit", new { id = item.Id }, htmlAttributes: new { @class = "glyphicon glyphicon-edit btn btn-success movie-one" })|
+                @Html.ActionLink(" Info", "Details", new { id = item.Id }, htmlAttributes: new { @class = "glyphicon glyphicon-info-sign btn btn-primary" }) |
+                @Html.ActionLink(" Remove", "Delete", new { id = item.Id }, htmlAttributes: new { @class = "glyphicon glyphicon-trash btn btn-danger " })
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+<style>
+    .column-header {
+        background-color: lightgrey;
+    }
+
+    .table-body {
+        box-shadow: 0 0 15px 0;
+    }
+
+    .colum-head-color {
+        color: indigo;
+        font-family: 'Global Monospace';
+        font-size: 2rem;
+    }
+
+    .class-header {
+        font-family: 'Global Monospace';
+        color: darkblue;
+    }
+
+    .member td {
+    }
+
+    #Search {
+        background-color: lightskyblue
+    }
+
+    .movie-one {
+    }
+
+    .two {
+        background-color: royalblue
+    }
+</style>
+
+
+
+
+
+

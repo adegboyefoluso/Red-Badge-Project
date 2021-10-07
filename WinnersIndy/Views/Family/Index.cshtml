@@ -1,0 +1,58 @@
+﻿@model IEnumerable<WinnersIndy.Model.FamilyModel.FamilyListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Families</h2>
+
+<p>
+    @Html.ActionLink("Add New Family", "Create")
+</p>
+<table class="table table-body ">
+    <tr class="column-header">
+        @*<th>
+                @Html.DisplayNameFor(model => model.FamilyId)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.AniversaryDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FamilyName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.FamilyId)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.AniversaryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FamilyName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.FamilyId }) |
+                @Html.ActionLink("Details", "GetFamilyMember", new { id = item.FamilyId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.FamilyId })
+            </td>
+        </tr>
+    }
+
+</table>
+<style>
+    .column-header {
+        background-color: lightgrey;
+        
+    }
+
+    .table-body {
+        box-shadow: 0 0 15px 0;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        
+    }
+</style>

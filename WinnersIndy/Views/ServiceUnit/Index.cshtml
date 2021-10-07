@@ -1,0 +1,82 @@
+﻿@model IEnumerable<WinnersIndy.Model.ServiceUnit.ServiceUnitListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@*<h2>Index</h2>*@
+<br />
+<br />
+<p class="text-center">
+    @Html.ActionLink("Add New Service Unit", "Create", null, htmlAttributes: new { @class = " btn btn-primary two " })
+</p>
+
+<div class="container">
+
+    <div class="colum-head-color text-center">
+        <h2>List Of Service Units</h2>
+    </div>
+
+</div>
+<table class="table table-body">
+    <tr class="column-header">
+        <th class="colum-head-color">
+            @Html.DisplayNameFor(model => model.NumberOfMember)
+        </th>
+        <th class="colum-head-color">
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfMember)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink(" Edit", "Edit", new {  id=item.ServiceUnitId }, htmlAttributes: new { @class = "glyphicon glyphicon-edit btn btn-success" }) |
+            @Html.ActionLink(" Info", "Details", new { id = item.ServiceUnitId }, htmlAttributes: new { @class = "glyphicon glyphicon-info-sign btn btn-primary" }) |
+            @Html.ActionLink(" Delete", "Delete", new { id = item.ServiceUnitId }, htmlAttributes: new { @class = "glyphicon glyphicon-trash btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+<style>
+    .column-header {
+        background-color: lightgrey;
+    }
+
+    .table-body {
+        box-shadow: 0 0 15px 0;
+    }
+
+    .colum-head-color {
+        color: indigo;
+        font-family: 'Global Monospace';
+        font-size: 2rem;
+    }
+
+    .class-header {
+        font-family: 'Global Monospace';
+        color: darkblue;
+    }
+
+    .member td {
+    }
+
+    #Search {
+        background-color: lightskyblue
+    }
+
+    .movie-one {
+    }
+
+    .two {
+        background-color: royalblue
+    }
+</style>

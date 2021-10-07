@@ -1,0 +1,87 @@
+﻿@model IEnumerable<WinnersIndy.Model.ChildrenClassFolder.ChildrenClassEdit>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="class-header">Children Classes</h2>
+
+<p>
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Create Class", "Create")
+    }
+</p>
+
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
+<table class="table table-body">
+    <tr class="column-header">
+        @*<th>
+            @Html.DisplayNameFor(model => model.ChildrenClassId)
+        </th>*@
+        <th class="colum-head-color">
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th class="colum-head-color">
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.ChildrenClassId)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+
+                @if (User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ChildrenClassId }) <span> | </span>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ChildrenClassId }) <span> | </span>
+                }
+
+                @Html.ActionLink("Details", "Details", new { id = item.ChildrenClassId }) |
+                @Html.ActionLink("Attendance", "Create", "Attendance", new { id = item.ChildrenClassId }, null) 
+                @*@Html.ActionLink("Add to class", "AddChildtoClass", new { id = item.ChildrenClassId })*@
+
+
+
+
+            </td>
+        </tr>
+    }
+</table>
+<style>
+    .column-header {
+        background-color: lightgrey;
+    }
+
+    .table-body {
+        box-shadow: 0 0 15px 0;
+    }
+    .colum-head-color {
+        color: indigo;
+        font-family: 'Global Monospace'
+    }
+    .class-header{
+        font-family:'Global Monospace';
+        color:darkblue
+
+    }
+</style>

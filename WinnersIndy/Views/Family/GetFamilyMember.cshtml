@@ -1,0 +1,53 @@
+﻿@model WinnersIndy.Model.FamilyModel.FamilyDetails
+
+@{
+    ViewBag.Title = "GetFamilyMember";
+}
+
+@*<h2>GetFamilyMember</h2>*@
+
+<div>
+    <h3>Family Details</h3>
+    <hr />
+    <h3>@Html.DisplayFor(model => model.FamilyName)</h3>
+
+    <br />
+    <br />
+    
+    @*<h4>Members</h4>*@
+    <table class="table">
+        <tr>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                PhoneNumber
+            </th>
+
+        </tr>
+
+        @foreach (var modelitem in Model.FamilyMembers)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => modelitem.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => modelitem.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => modelitem.PhoneNumber)
+                </td>
+            </tr>
+
+        }
+    </table>
+
+</div>
+<p>
+
+    @Html.ActionLink("Back to List", "Index")
+</p>

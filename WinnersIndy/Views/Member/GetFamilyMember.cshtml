@@ -1,0 +1,93 @@
+﻿@model IEnumerable<WinnersIndy.Data.Member>
+@{
+    ViewBag.Title = "GetFamilyMember";
+}
+
+<h2>Family Members</h2>
+
+<p>
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+
+        <th>
+            Address
+        </th>
+
+        <th>
+            Phone Number
+        </th>
+        @*<th>
+            Age
+        </th>*@
+        <th>
+            Email Address
+        </th>
+
+        <th>
+            Send Email
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAddress)
+            </td>
+
+            @*<td>
+                @if (item.ServiceUnit.ToString() != "Child")
+                {
+
+                    @Html.ActionLink("Send Email", "Email", new { id = item.MemberId })
+
+                }
+
+
+            </td>*@
+
+            <td>
+                @if (item.Age>18)
+                {
+
+                    @Html.ActionLink("Send Email", "Email", new { id = item.MemberId })
+
+                }
+
+
+            </td>
+
+
+        </tr>
+    }
+
+</table>
+
+@Html.ActionLink("Back to List", "Index", "ChildrenClass")
+

@@ -1,0 +1,95 @@
+﻿@model WinnersIndy.Model.AttendanceFolder.AttendanceList
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Attendance Date:@ViewBag.Date</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @*<h4>AttendanceList</h4>*@
+       
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.HiddenFor(model => model.ChildrenClassId, htmlAttributes: new { @class = "control-label col-md-2" })
+        </div>
+
+        @*<div class="form-group">
+            @Html.HiddenFor(model => model.AttendanceDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="date" name="AttendanceDate" value="AttendanceDate" id="AttendanceDate" />
+                @Html.ValidationMessageFor(model => model.AttendanceDate, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.HiddenFor(model => model.AttendanceSheetList, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>*@
+
+        <table class="table">
+            <tr>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    Last Name
+                </th>
+
+                @*<th>
+                        PersonId
+                    </th>*@
+                <th>
+                    In Church
+                </th>
+            </tr>
+
+            @{
+                int i = 0;
+                foreach (var modelItem in Model.AttendanceSheetList.ToList())// Rebuilding the list
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(model => model.AttendanceSheetList[i].FirstName, new { @firstName = "FirstName_" + i })
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => model.AttendanceSheetList[i].LastName, new { @lastName = "LastName_" + i })
+                        </td>
+
+                        <td>
+                            @*@Html.CheckBoxFor(Model=>modelItem.Inchurch)*@
+                            @Html.CheckBoxFor(o => o.AttendanceSheetList[i].Inchurch, new { @inChurch = "InChurch_" + i })
+                        </td>
+
+                        <td>
+                            @*                            @Html.DisplayFor(Model=>modelItem.MemberId)*@
+                            @Html.HiddenFor(o => o.AttendanceSheetList[i].MemberId, new { @memberId = "PersonId_" + i })
+                        </td>
+                    </tr>
+                    i++;
+                }
+            }
+        </table>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit Attendance" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "ChildrenClass")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

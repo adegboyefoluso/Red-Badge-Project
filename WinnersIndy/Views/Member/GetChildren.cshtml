@@ -1,0 +1,89 @@
+﻿@*@model IEnumerable<WinnersIndy.Model.MemberFolder.Children>*@
+@model PagedList.IPagedList<WinnersIndy.Model.MemberFolder.Children>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "GetChildren";
+}
+
+<h2>Children</h2>
+<br />
+
+@using (Html.BeginForm("GetChildren", "Member", FormMethod.Get))
+{
+    <p>
+        <span class="text-info">Find by Last Name</span>: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" id="Search" />
+    </p>
+}
+<table class="table table-body">
+    <tr class="column-header">
+
+        <th>
+            @*@Html.DisplayNameFor(model => model.FirstName)*@
+            First Name
+        </th>
+        <th>
+            @Html.ActionLink("Last Name", "GetChildren", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            Date of Birth
+        </th>
+        <th>
+            
+            @Html.ActionLink("Age", "GetChildren", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MemberId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MemberId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MemberId }) |
+                @Html.ActionLink("Add to class", "AddChildToClass", new { id = item.MemberId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+<p>
+
+    @Html.ActionLink(" Back", "Index", null, htmlAttributes: new { @class = "glyphicon glyphicon-arrow-left btn btn-success" })
+</p>
+
+<style>
+    .column-header {
+        background-color: lightgrey;
+    }
+
+    .table-body {
+        box-shadow: 0 0 15px 0;
+    }
+    #Search{
+        background-color:lightblue;
+    }
+</style>

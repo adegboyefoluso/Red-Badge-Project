@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WinnersIndy.Model.AttendanceFolder.ChildrenClassAttendanceListItem>
+
+@{
+    ViewBag.Title = "GetClassAttendance";
+    
+    
+}
+
+
+<br />
+<br />
+<h2>Class Attendance for: @ViewBag.Date </h2>
+
+
+
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InChurch)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InChurch)
+            </td>
+            <td>
+                @Html.ActionLink("Get Family Info", "GetFamilyMember", "Member", new { id = item.MemberId }, null) 
+               
+            </td>
+        </tr>
+    }
+
+</table>

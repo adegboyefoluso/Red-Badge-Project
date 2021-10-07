@@ -1,0 +1,208 @@
+﻿@model WinnersIndy.Model.MemberFolder.MemberDetails
+
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<h2 id="">Details</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            @Html.ActionLink(" Edit", "Edit", new { id = Model.MemberId }, htmlAttributes: new { @class = "glyphicon glyphicon-edit btn btn-primary" })
+        </div>
+        @*<div class="col-md-3">
+                @Html.ActionLink("Add Member To Family", "AddParenttoFamily", "Family", new { id = Model.MemberId }, htmlAttributes: new { @class = "glyphicon glyphicon-edit btn btn-primary" })
+            </div>*@
+        <div class="col-md-6">
+            @Html.ActionLink(" Add Member To Service Unit", "AddMemberToServiceUnit", "Member", new { id = Model.MemberId }, htmlAttributes: new { @class = "glyphicon glyphicon-plus btn btn-primary" })
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+
+
+    <hr />
+    <div class="row ">
+        <div class="col-md-6 color1">
+            <dl class="dl-horizontal">
+                @*<dt>
+                        @Html.DisplayNameFor(model => model.MemberId)
+                    </dt>*@
+
+                @*<dd>
+                        @Html.DisplayFor(model => model.MemberId)
+                    </dd>*@
+
+                <dt class="colum-head-color">
+                    @Html.DisplayNameFor(model => model.FirstName):
+                </dt>
+
+                <dd class="movie-one">
+                    @Html.DisplayFor(model => model.FirstName)
+                </dd>
+
+                <dt class="colum-head-color">
+                    @Html.DisplayNameFor(model => model.LastName):
+                </dt>
+
+                <dd class="movie-one">
+                    @Html.DisplayFor(model => model.LastName)
+                </dd>
+
+
+                <dt class="colum-head-color">
+                    @Html.DisplayNameFor(model => model.PhoneNumber):
+                </dt>
+
+                <dd class="movie-one">
+                    @Html.DisplayFor(model => model.PhoneNumber)
+                </dd>
+
+                <dt class="colum-head-color">
+                    @Html.DisplayNameFor(model => model.EmailAddress):
+                </dt>
+
+                <dd class="movie-one">
+                    @Html.DisplayFor(model => model.EmailAddress)
+                </dd>
+
+                <dt class="colum-head-color">
+                    @Html.DisplayNameFor(model => model.DateOfBirth):
+                </dt>
+
+                <dd class="movie-one">
+                    @Html.DisplayFor(model => model.DateOfBirth)
+                </dd>
+
+
+                <dt class="colum-head-color">
+                    @Html.DisplayNameFor(model => model.Address):
+                </dt>
+
+                <dd class="movie-one">
+                    @Html.DisplayFor(model => model.Address)
+                </dd>
+                <dt class="colum-head-color">
+                    @Html.DisplayNameFor(model => model.FamilyName):
+                </dt>
+
+                <dd class="movie-one">
+                    @Html.DisplayFor(model => model.FamilyName)
+
+                </dd>
+
+
+            </dl>
+        </div>
+
+
+        <div class="col-md-6 color1">
+            @if (Model.FileContent != null)
+            {
+                var base64 = Convert.ToBase64String(Model.FileContent); var imgsrc = String.Format("data:image/gif;base64,{0}", base64);<img src=@imgsrc ,class="posting" />
+            }
+
+            else
+            {
+                <img src="" class="img-fluid" alt="" />
+            }
+        </div>
+    </div>
+    <div class="text-center ">
+
+        <p class="detail">
+            @Html.ActionLink(" Contact Member", "Email", new { id = Model.MemberId }, htmlAttributes: new { @class = "glyphicon glyphicon-envelope btn btn-primary" }
+         )
+        </p>
+        <h2> Member's Service Units</h2>
+
+    </div>
+
+
+    @*<hr />*@
+</div>
+@*<div class="text-center bg-warning">
+
+    <p class="detail">
+        @Html.ActionLink(" Contact Member", "Email", new { id = Model.MemberId }, htmlAttributes: new { @class = "glyphicon glyphicon-envelope btn btn-primary" }
+     )
+    </p>
+    <h2> Member's Service Units</h2>
+
+</div>*@
+
+<table class="table">
+    <tr>
+        <th>
+            Service Unit
+        </th>
+
+        <th></th>
+    </tr>
+    @foreach (var item in Model.MemberServiceUnits)
+    {
+        <tr>
+            @*<td>
+                    @Html.DisplayFor(model=>item.Id)
+                </td>*@
+            <td>
+                @Html.DisplayFor(model => item.ServiceUnitName)
+            </td>
+            <td>
+                @Html.ActionLink(" Remove", "Remove", new { id = item.Id }, htmlAttributes: new { @class = "glyphicon glyphicon-trash btn btn-danger" })
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+
+    @Html.ActionLink(" Back", "Index", null, htmlAttributes: new { @class = "glyphicon glyphicon-arrow-left btn btn-success" })
+</p>
+<style>
+    .column-header {
+        background-color: lightgrey;
+    }
+
+    .table-body {
+        box-shadow: 0 0 15px 0;
+    }
+
+    .colum-head-color {
+        color: indigo;
+        font-family: 'Global Monospace';
+        font-size: 2rem;
+    }
+
+    .class-header {
+        font-family: 'Global Monospace';
+        color: darkblue;
+    }
+
+    .member td {
+    }
+    .detail{
+        padding:50px;
+    }
+
+    #Search {
+        background-color: lightskyblue
+    }
+
+    .movie-one {
+        font-family: 'Global Monospace';
+        font-size: 2rem;
+        color: royalblue;
+    }
+
+    .two {
+        background-color: royalblue
+    }
+</style>

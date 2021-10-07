@@ -1,0 +1,90 @@
+﻿@model WinnersIndy.Model.ServiceUnit.ServiceUnitDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<br />
+
+<div class="container">
+
+    <div class="colum-head-color text-center">
+        <h2>@Html.DisplayFor(model => model.Name) Unit Members</h2> 
+    </div>
+    
+</div>
+<table class="table table-body">
+    <tr class="member column-header">
+        <th class="colum-head-color">
+            Full Name
+        </th>
+        <th class="colum-head-color">
+            Phone Number
+        </th>
+        <th class="colum-head-color">
+            Email Address
+        </th>
+    </tr>
+    @foreach (var item in Model.Members)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(model => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.EmailAddress)
+            </td>
+
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink(" Back", "Index", null, htmlAttributes: new { @class = "glyphicon glyphicon-arrow-left btn btn-success" })
+</p>
+
+<style>
+    .column-header {
+        background-color: lightgrey;
+    }
+
+    .table-body {
+        box-shadow: 0 0 15px 0;
+    }
+
+    .colum-head-color {
+        color: indigo;
+        font-family: 'Global Monospace';
+        font-size: 2rem;
+    }
+
+    .class-header {
+        font-family: 'Global Monospace';
+        color: darkblue;
+    }
+
+    .member td {
+    }
+
+    .detail {
+        padding: 50px;
+    }
+
+    #Search {
+        background-color: lightskyblue
+    }
+
+    .movie-one {
+        font-family: 'Global Monospace';
+        font-size: 2rem;
+        color: royalblue;
+    }
+
+    .two {
+        background-color: royalblue
+    }
+</style>

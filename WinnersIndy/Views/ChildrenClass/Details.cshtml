@@ -1,0 +1,53 @@
+﻿@model WinnersIndy.Model.ChildrenClassFolder.ChildrenClassDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2> @Html.DisplayFor(model=>model.ChildrenClass)</h2>
+
+<div>
+    
+    
+    <br />
+    
+    
+  
+
+    <table class="table">
+        <tr>
+            <th>
+               First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+           
+            <th></th>
+        </tr>
+        @foreach (var modelitem in Model.ChildDetails)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(Model => modelitem.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(Model => modelitem.LastName)
+                </td>
+               
+                <td>
+                    @Html.ActionLink("Remove Child", "RemoveChild", "Member", new { id = modelitem.MemberId }, null)
+                </td>
+            </tr>
+        }
+    </table>
+
+
+    @*</dl>*@
+</div>
+<p>
+
+    @Html.ActionLink("Back to List", "Index")|
+    @Html.ActionLink("Class Attendance", "GetAttendanceDate", "Attendance", new { id = Model.ChildrenClassId }, null)|
+    
+</p>
