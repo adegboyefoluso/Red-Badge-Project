@@ -68,27 +68,6 @@
     <Compile Include="IdentityUserRoleConfiguration.cs" />
     <Compile Include="Member.cs" />
     <Compile Include="MemberServiceUnit.cs" />
-    <Compile Include="Migrations\202110061827078_first.cs" />
-    <Compile Include="Migrations\202110061827078_first.designer.cs">
-      <DependentUpon>202110061827078_first.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110061844228_second.cs" />
-    <Compile Include="Migrations\202110061844228_second.designer.cs">
-      <DependentUpon>202110061844228_second.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110061858085_another.cs" />
-    <Compile Include="Migrations\202110061858085_another.designer.cs">
-      <DependentUpon>202110061858085_another.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110062032439_another1.cs" />
-    <Compile Include="Migrations\202110062032439_another1.designer.cs">
-      <DependentUpon>202110062032439_another1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110062153336_ad.cs" />
-    <Compile Include="Migrations\202110062153336_ad.designer.cs">
-      <DependentUpon>202110062153336_ad.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Report.cs" />
     <Compile Include="ServiceUnit.cs" />
@@ -96,23 +75,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202110061827078_first.resx">
-      <DependentUpon>202110061827078_first.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110061844228_second.resx">
-      <DependentUpon>202110061844228_second.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110061858085_another.resx">
-      <DependentUpon>202110061858085_another.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110062032439_another1.resx">
-      <DependentUpon>202110062032439_another1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110062153336_ad.resx">
-      <DependentUpon>202110062153336_ad.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

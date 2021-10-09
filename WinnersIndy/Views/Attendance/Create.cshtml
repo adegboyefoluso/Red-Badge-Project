@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Attendance Date:@ViewBag.Date</h2>
+<h2 class="member-td">Attendance Date:@ViewBag.Date</h2>
 
 
 @using (Html.BeginForm())
@@ -12,40 +12,29 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        @*<h4>AttendanceList</h4>*@
+        
        
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.HiddenFor(model => model.ChildrenClassId, htmlAttributes: new { @class = "control-label col-md-2" })
         </div>
 
-        @*<div class="form-group">
-            @Html.HiddenFor(model => model.AttendanceDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input type="date" name="AttendanceDate" value="AttendanceDate" id="AttendanceDate" />
-                @Html.ValidationMessageFor(model => model.AttendanceDate, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
+       
 
-        @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.HiddenFor(model => model.AttendanceSheetList, htmlAttributes: new { @class = "control-label col-md-2" })
-            </div>*@
-
-        <table class="table">
-            <tr>
-                <th>
+        <table class="table table-body table-bordered table-hover">
+            <tr class="column-header">
+                <th class="colum-head-color">
                     First Name
                 </th>
-                <th>
+                <th class="colum-head-color">
                     Last Name
                 </th>
 
                 @*<th>
                         PersonId
                     </th>*@
-                <th>
-                    In Church
+                <th class="colum-head-color">
+                    Mark Attendance
                 </th>
             </tr>
 
@@ -66,10 +55,10 @@
                             @Html.CheckBoxFor(o => o.AttendanceSheetList[i].Inchurch, new { @inChurch = "InChurch_" + i })
                         </td>
 
-                        <td>
-                            @*                            @Html.DisplayFor(Model=>modelItem.MemberId)*@
+                        @*<td>
+                                                        @Html.DisplayFor(Model=>modelItem.MemberId)
                             @Html.HiddenFor(o => o.AttendanceSheetList[i].MemberId, new { @memberId = "PersonId_" + i })
-                        </td>
+                        </td>*@
                     </tr>
                     i++;
                 }
@@ -80,16 +69,53 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Submit Attendance" class="btn btn-default" />
+                <input type="submit" value="Submit Attendance" class="btn btn-primary" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index", "ChildrenClass")
+    @Html.ActionLink(" Back to List", "Index", "ChildrenClass",null, htmlAttributes:new { @class= "glyphicon glyphicon-arrow-left btn btn-success"})
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+<style>
+    .column-header {
+        background-color: lightgrey;
+    }
+
+    .table-body {
+        box-shadow: 0 0 15px 0;
+    }
+
+    .colum-head-color {
+        color: indigo;
+        font-family: 'Global Monospace';
+        font-size: 2rem;
+    }
+
+    .class-header {
+        font-family: 'Global Monospace';
+        color: darkblue;
+    }
+
+    .member-td {
+        color:indigo
+    }
+
+    #Search {
+        background-color: lightskyblue
+    }
+
+    .movie-one {
+        color: indigo;
+        text-align: center
+    }
+
+    .two {
+        background-color: royalblue
+    }
+</style>

@@ -28,5 +28,6 @@ namespace WinnersIndy.Model.MemberFolder
         [Display(Name = "Image")]
         public byte[] FileContent { get; set; }
         public string Address { get; set; }
+        
     }
 }

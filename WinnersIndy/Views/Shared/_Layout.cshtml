@@ -23,16 +23,37 @@
                 <ul class="nav navbar-nav">
                     @if (User.IsInRole("Pastor") || (User.IsInRole("Admin")))
                     {
-                        <li>@Html.ActionLink("Member", "Index", "Member")</li>
-                        <li>@Html.ActionLink("Family", "Index", "Family")</li>
-                        <li>@Html.ActionLink("First Timer", "Index", "FirstTimer")</li>
-                        <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
-                        <li>@Html.ActionLink("Service Unit", "Index", "ServiceUnit")</li>
+                        <li class="li">
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle menu" type="button" data-toggle="dropdown">
+                                    Menus
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu men">
+                                    <li>@Html.ActionLink("Member", "Index", "Member")</li>
+                                    <li>@Html.ActionLink("Family", "Index", "Family")</li>
+                                    <li>@Html.ActionLink("First Timer", "Index", "FirstTimer")</li>
+                                    <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
+                                    <li>@Html.ActionLink("Service Unit", "Index", "ServiceUnit")</li>
+                                    <li>@Html.ActionLink(" Reports", "FileDetails", "Report")</li>
+                                    <li>@Html.ActionLink("Class Category", "Index", "ChildrenClass")</li>
+                                    
+                                    <li>@Html.ActionLink("Submit Report", "Create", "Report")</li>
+                                </ul>
+                            </div>
+                        </li>
+
+                       
+                    }
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    @if (User.IsInRole("Teacher") )
+                    {
+
+                        <li>@Html.ActionLink("Class Category", "Index", "ChildrenClass")</li>
+                       
+                        <li>@Html.ActionLink("Submit Report", "Create", "Report")</li>
 
                     }
-                    <li>@Html.ActionLink("Class Category", "Index", "ChildrenClass")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-
                     @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -52,3 +73,8 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+<style>
+    .li {
+        padding-top: 8px;
+    }
+</style>

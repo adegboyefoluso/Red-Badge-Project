@@ -144,7 +144,7 @@ namespace WinnersIndy.Services
                 member.FileContent = bytes;
                 member.ModifiedUtc = DateTimeOffset.Now;
                 member.Address = model.Address;
-                //member.Family.FamilyName = model.FamilyName;
+               
 
                 return ctx.SaveChanges() == 1;
             }

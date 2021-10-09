@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Message";
+}
+
+<h2>Message</h2>
+
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
+
+<p>
+    @Html.ActionLink("Back to List", "FileDetails")
+</p>
+

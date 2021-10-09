@@ -9,33 +9,31 @@ using WinnersIndy.Data;
 
 namespace WinnersIndy.Controllers
 {
-    [Authorize]
-    public class usersController : Controller
+    public class RoleController : Controller
     {
-        // GET: users
+        ApplicationDbContext context = new ApplicationDbContext();
+        // GET: Role
         public ActionResult Index()
         {
+
             if (User.Identity.IsAuthenticated)
             {
-                var user = User.Identity;
-                ViewBag.Name = user.Name;
 
-                ViewBag.displayMenu = "No";
 
-                if (isAdminUser())
+                if (!isAdminUser())
                 {
-                    ViewBag.displayMenu = "Yes";
+                    return RedirectToAction("Index", "Home");
                 }
-                return View();
             }
             else
             {
-                ViewBag.Name = "Not Logged IN";
+                return RedirectToAction("Index");
             }
-            return View();
+
+            var Roles = context.Roles.ToList();
+            return View(Roles);
 
         }
-
         public bool isAdminUser()
         {
             if (User.Identity.IsAuthenticated)

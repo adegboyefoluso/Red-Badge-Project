@@ -43,7 +43,7 @@ namespace WinnersIndy.Data
         public DbSet<FirstTimer> FirstTimers { get; set; }
         public DbSet<ServiceUnit>ServiceUnits { get; set; }
         public DbSet<MemberServiceUnit> MemberServiceUnits { get; set; }
-        //public DbSet<Report> Reports { get; set; }
+        public DbSet<Report> Reports { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

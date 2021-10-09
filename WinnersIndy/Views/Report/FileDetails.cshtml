@@ -1,0 +1,86 @@
+﻿@model IEnumerable<WinnersIndy.Model.ReportListItem>
+
+@{
+    ViewBag.Title = "FileDetails";
+}
+
+<h2>FileDetails</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-body table-hover  table-bordered table-condensed">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ReportPeriod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceUnit)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.TypeOfReport)
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReportPeriod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceUnit)
+            </td>
+            
+            <th>
+                @Html.DisplayFor(modelItem => item.TypeOfReport)
+            </th>
+            <td>
+                @Html.ActionLink("Downlaod", "DownLoadFile", new { id = item.Id })
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "DeleteReport", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+<style>
+    .column-header {
+        background-color: lightgrey;
+    }
+
+    .table-body {
+        box-shadow: 0 0 15px 0;
+    }
+
+    .colum-head-color {
+        color: indigo;
+        font-family: 'Global Monospace';
+        font-size: 2rem;
+    }
+
+    .class-header {
+        font-family: 'Global Monospace';
+        color: darkblue;
+    }
+
+    .member td {
+    }
+
+    #Search {
+        background-color: lightskyblue
+    }
+
+    .movie-one {
+    }
+
+    .two {
+        background-color: royalblue
+    }
+</style>

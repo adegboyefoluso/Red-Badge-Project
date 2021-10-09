@@ -119,6 +119,7 @@
     <Compile Include="MemberServiceUnitCreate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportCreate.cs" />
+    <Compile Include="ReportListItem.cs" />
     <Compile Include="ServiceUnit\ServiceUnitCreate.cs" />
     <Compile Include="ServiceUnit\ServiceUnitDetail.cs" />
     <Compile Include="ServiceUnit\ServiceUnitListItem.cs" />

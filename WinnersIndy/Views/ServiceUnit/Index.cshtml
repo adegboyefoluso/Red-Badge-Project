@@ -10,7 +10,15 @@
 <p class="text-center">
     @Html.ActionLink("Add New Service Unit", "Create", null, htmlAttributes: new { @class = " btn btn-primary two " })
 </p>
-
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
 <div class="container">
 
     <div class="colum-head-color text-center">
@@ -29,21 +37,22 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumberOfMember)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.ActionLink(" Edit", "Edit", new {  id=item.ServiceUnitId }, htmlAttributes: new { @class = "glyphicon glyphicon-edit btn btn-success" }) |
-            @Html.ActionLink(" Info", "Details", new { id = item.ServiceUnitId }, htmlAttributes: new { @class = "glyphicon glyphicon-info-sign btn btn-primary" }) |
-            @Html.ActionLink(" Delete", "Delete", new { id = item.ServiceUnitId }, htmlAttributes: new { @class = "glyphicon glyphicon-trash btn btn-danger" })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfMember)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink(" Edit", "Edit", new { id = item.ServiceUnitId }, htmlAttributes: new { @class = "glyphicon glyphicon-edit btn btn-success" }) |
+                @Html.ActionLink(" Info", "Details", new { id = item.ServiceUnitId }, htmlAttributes: new { @class = "glyphicon glyphicon-info-sign btn btn-primary" }) |
+                @Html.ActionLink(" Delete", "Delete", new { id = item.ServiceUnitId }, htmlAttributes: new { @class = "glyphicon glyphicon-trash btn btn-danger" })
+            </td>
+        </tr>
+    }
 
 </table>
 <style>
