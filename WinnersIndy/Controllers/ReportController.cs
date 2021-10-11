@@ -60,7 +60,12 @@ namespace WinnersIndy.Controllers
             
             if (services.CreateReport(model))
             {
-                TempData["SaveResult"] = "Report Submitted Suuccesfully";
+                TempData["SaveResult"] = "For God is not unjust so as to overlook your work and the love that you have shown for his name in serving the saints,\n" +
+                    " as you still do. And we desire each one of you to show the same earnestness to have the full assurance of hope until the end,\n" +
+                    " so that you may not be sluggish, but imitators of those who through faith and patience inherit the promises. ..... Heb 6:10-12                .\n" +
+                     "           May the God Reward your Service  in His Vineyard and bless your according to His riches in glory\n" +
+                    "May He makes his light to shine on you\n" +
+                    "An remember all you service ";
                 return RedirectToAction("SubmitMessage" ,"Report");
             }
             ModelState.AddModelError("", "Pdf Format only");
