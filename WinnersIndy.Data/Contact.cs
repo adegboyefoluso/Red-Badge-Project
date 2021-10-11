@@ -12,7 +12,7 @@ namespace WinnersIndy.Data
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
-        public int? MemberId { get; set; }
+        public int MemberId { get; set; }
         public virtual Member Member { get; set; }
         public bool Converted { get; set; } = false;
         public bool IsActive { get; set; } = true;

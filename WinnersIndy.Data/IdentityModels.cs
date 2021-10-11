@@ -67,7 +67,7 @@ namespace WinnersIndy.Data
             //==>A Member may have many contact( HAsMany ) but a contact must have a member(WithRequired).
             modelBuilder.Entity<Member>()
                 .HasMany(c => c.Contacts)
-                .WithOptional(a => a.Member)
+                .WithRequired(a => a.Member)
                 .WillCascadeOnDelete(false); // to research further on why the cascade delete  is not setting to false in botyh 
 
             //modelBuilder.Entity<Family>()

@@ -23,11 +23,12 @@
             </di*@
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Members, htmlAttributes: new { @class = "control-label col-md-2 colum-head-color" })
+            @Html.LabelFor(model => model.Memberss, htmlAttributes: new { @class = "control-label col-md-2 colum-head-color" })
             <div class="col-md-10">
                 @*@Html.DropDownListFor(model => model.Families, new SelectList(Model.Families.Select(x => new { FamilyId = x.FamilyId, FamilyName = x.FamilyName }),"FamilyId","FamilyName",Model.Families),"Select Family",
-              new { htmlAttributes = new { @class = "form-control" } })*@
-                @Html.DropDownListFor(model => model.MemberId, ViewBag.MyList as SelectList, new { @class = "form-control" })
+        new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownListFor(model => model.MemberId, Model.Memberss, "Select Member", new { @class = "form-control" })
+               
                 @Html.ValidationMessageFor(model => model.MemberId, "", new { @class = "text-danger" })
 
 
