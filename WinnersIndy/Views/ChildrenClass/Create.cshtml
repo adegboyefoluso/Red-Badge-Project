@@ -13,19 +13,19 @@
 
     <div class="form-horizontal">
         <br />
-        <h4>Create New Class</h4>
+        <h4>Add New Class</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2 colum-head-color" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Name,  new { @class = "form-control" , placeholder="Class Name"})
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Class Name" })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2 colum-head-color" })
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.Description, new { @class = "form-control", placeholder = "Class Description" })
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
@@ -34,17 +34,53 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Add" class="btn btn-primary" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(" Back", "Index", null, htmlAttributes: new { @class = "glyphicon glyphicon-arrow-left btn btn-success" })
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+<style>
+    .column-header {
+        background-color: lightgrey;
+    }
+
+    .table-body {
+        box-shadow: 0 0 15px 0;
+    }
+
+    .colum-head-color {
+        color: indigo;
+        font-family: 'Global Monospace';
+        font-size: 2rem;
+    }
+
+    .class-header {
+        font-family: 'Global Monospace';
+        color: darkblue;
+    }
+
+    .member td {
+    }
+
+    #Search {
+        background-color: lightskyblue
+    }
+
+    .movie-one {
+        color: indigo;
+        text-align: center
+    }
+
+    .two {
+        background-color: royalblue
+    }
+</style>
 

@@ -67,15 +67,16 @@ namespace WinnersIndy.Controllers
 
         public ActionResult Create()
         {
-            var service = CrteateMemberService();
+            var ser = CrteateMemberService();
 
-            MemberCreate model = new MemberCreate();
-           
-            List<MemberListItem> MemberItem = service.GetMembers().ToList();
-            MemberListItem Members = new MemberListItem() { MemberId = 0, LastName = "Select Member" };
-            MemberItem.Add(Members);
-            ViewBag.MyList = new SelectList(MemberItem.OrderBy(x => x.MemberId).ToList(), "MemberId", "FullName");
-            return View();
+            
+            ContactCreate model = new ContactCreate();
+            List<MemberListItem> MemberItem = ser.GetMembers().ToList();
+            model.Memberss= new SelectList(MemberItem, "MemberId", "FullName");
+            //MemberListItem Members = new MemberListItem() { MemberId = 0, LastName = "Select Member" };
+            //MemberItem.Add(Members);
+            //ViewBag.MyList = new SelectList(MemberItem.OrderBy(x => x.MemberId).ToList(), "MemberId", "FullName");
+            return View(model);
 
         }
 
@@ -86,9 +87,7 @@ namespace WinnersIndy.Controllers
         {
             var ser = CrteateMemberService();
             List<MemberListItem> MemberItem = ser.GetMembers().ToList();
-            MemberListItem Members = new MemberListItem() { MemberId = 0, LastName = "Select Member" };
-            MemberItem.Add(Members);
-            ViewBag.MyList = new SelectList(MemberItem.OrderBy(x => x.MemberId).ToList(), "MemberId", "FullName");
+            model.Memberss = new SelectList(MemberItem, "MemberId", "FullName");
             if (!ModelState.IsValid) return View(model);
             var service = CrteateContactService();
             //if (model.MemberId == 0)

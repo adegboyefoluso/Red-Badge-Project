@@ -187,6 +187,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\ServiceUnitController.cs" />
     <Compile Include="Controllers\usersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -300,6 +302,12 @@
     <Content Include="Views\Contact\Delete.cshtml" />
     <Content Include="Views\ServiceUnit\Details.cshtml" />
     <Content Include="Views\ServiceUnit\Delete.cshtml" />
+    <Content Include="Views\ServiceUnit\Edit.cshtml" />
+    <Content Include="Views\Role\Index.cshtml" />
+    <Content Include="Views\Report\Create.cshtml" />
+    <Content Include="Views\Report\FileDetails.cshtml" />
+    <Content Include="Views\Report\Message.cshtml" />
+    <Content Include="Views\Report\SubmitMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

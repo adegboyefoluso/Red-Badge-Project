@@ -82,9 +82,7 @@ namespace WinnersIndy.Controllers
             var service = CreateFamilyService();
 
             MemberCreate model = new MemberCreate();
-           //List<SelectListItem>  Items = new SelectList(service.GetFamilies(), "FamilyId", "FamilyName",model.FamilyId).ToList();
-           // Items.Insert(0, (new SelectListItem { Text = "SelectFamily", Value = "0" }));
-           // ViewBag.MyList = Items;
+          
             List<FamilyListItem> FamilyItem = service.GetFamilies().ToList();
             FamilyListItem family = new FamilyListItem() { FamilyId = 0, FamilyName = "Select Family" };
             FamilyItem.Add(family);
@@ -135,6 +133,8 @@ namespace WinnersIndy.Controllers
                 DateOfBirth = model.DateOfBirth,
                 EmailAddress = model.EmailAddress,
                 FileContent = model.FileContent,
+                
+
 
 
 

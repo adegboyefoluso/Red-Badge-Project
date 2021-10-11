@@ -71,6 +71,36 @@ namespace WinnersIndy.Controllers
             return RedirectToAction("Index");
         }
 
+        // GET :Member/Delete{Id}
+        public ActionResult Edit(int id)
+        {
+            var service = CrteateServiceUnit();
+            var model = service.GetServiceUnitById(id);
+            var serviceEdit = new ServiceUnitCreate
+            {
+                Name = model.Name
+            };
+            return View(serviceEdit);
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+       
+        public ActionResult Edit(ServiceUnitCreate model , int id)
+        {
+
+            if (!ModelState.IsValid) return View(model);
+
+            var service = CrteateServiceUnit();
+            if (service.EditServiceUnit(model,id))
+            {
+                TempData["SaveResult"] = " Information updated succesfully.";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "Update Failed.");
+            return View(model);
+        }
 
     }
 }

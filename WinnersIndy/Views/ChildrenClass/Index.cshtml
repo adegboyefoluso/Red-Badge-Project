@@ -9,7 +9,7 @@
 <p>
     @if (User.IsInRole("Admin"))
     {
-        @Html.ActionLink("Create Class", "Create")
+        @Html.ActionLink("New Class", "Create")
     }
 </p>
 
@@ -22,11 +22,12 @@
         @TempData["SaveResult"]
     </div>
 }
-<table class="table table-body">
+<table class="table table-body table-hover  table-bordered table-condensed">
+   
     <tr class="column-header">
         @*<th>
-            @Html.DisplayNameFor(model => model.ChildrenClassId)
-        </th>*@
+                @Html.DisplayNameFor(model => model.ChildrenClassId)
+            </th>*@
         <th class="colum-head-color">
             @Html.DisplayNameFor(model => model.Name)
         </th>
@@ -38,26 +39,26 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+        <tr >
             @*<td>
-                @Html.DisplayFor(modelItem => item.ChildrenClassId)
-            </td>*@
-            <td>
+                    @Html.DisplayFor(modelItem => item.ChildrenClassId)
+                </td>*@
+            <td >
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
-            <td>
+            <td >
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
 
                 @if (User.IsInRole("Admin"))
                 {
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ChildrenClassId }) <span> | </span>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ChildrenClassId }) <span> | </span>
+                    @Html.ActionLink(" Remove", "Delete", new { id = item.ChildrenClassId }, htmlAttributes: new { @class = "glyphicon glyphicon-trash btn btn-danger movie-one" }) <span> | </span>
+                    @Html.ActionLink(" Edit", "Edit", new { id = item.ChildrenClassId }, htmlAttributes: new { @class = "glyphicon glyphicon-edit btn btn-success movie-one" }) <span> | </span>
                 }
 
-                @Html.ActionLink("Details", "Details", new { id = item.ChildrenClassId }) |
-                @Html.ActionLink("Attendance", "Create", "Attendance", new { id = item.ChildrenClassId }, null) 
+                @Html.ActionLink(" Info", "Details", new { id = item.ChildrenClassId }, htmlAttributes: new { @class = "glyphicon glyphicon-info-sign btn btn-primary movie-one" }) |
+                @Html.ActionLink(" Attendance", "Create", "Attendance", new { id = item.ChildrenClassId }, htmlAttributes: new { @class = "glyphicon glyphicon-check btn btn-success movie-one" })
                 @*@Html.ActionLink("Add to class", "AddChildtoClass", new { id = item.ChildrenClassId })*@
 
 
@@ -77,7 +78,9 @@
     }
     .colum-head-color {
         color: indigo;
-        font-family: 'Global Monospace'
+        font-family: 'Global Monospace';
+        font-size:2rem;
+
     }
     .class-header{
         font-family:'Global Monospace';

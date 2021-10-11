@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using WinnersIndy.Model.MemberFolder;
 
 namespace WinnersIndy.Model.Contact
@@ -19,7 +20,8 @@ namespace WinnersIndy.Model.Contact
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
         [Display(Name = "Contact Person")]
-        public IEnumerable<MemberListItem> Members { get; set; }
+        //public IEnumerable<MemberListItem> Members { get; set; }
+        public SelectList Memberss { get; set; }
 
 
     }

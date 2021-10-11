@@ -80,6 +80,19 @@ namespace WinnersIndy.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        public bool EditServiceUnit (  ServiceUnitCreate model, int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var query = ctx.ServiceUnits.SingleOrDefault(e => e.Id == id && e.IsActive == true);
+                if (query is null)
+                {
+                    return false;
+                }
+                query.Name = model.Name;
+                return ctx.SaveChanges() == 1;
+            }
+        }
         
     }
 }

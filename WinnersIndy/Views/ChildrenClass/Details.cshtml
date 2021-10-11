@@ -4,25 +4,25 @@
     ViewBag.Title = "Details";
 }
 
-<h2> @Html.DisplayFor(model=>model.ChildrenClass)</h2>
+<h2> @Html.DisplayFor(model => model.ChildrenClass)</h2>
 
 <div>
-    
-    
-    <br />
-    
-    
-  
 
-    <table class="table">
-        <tr>
-            <th>
-               First Name
+
+    <br />
+
+
+
+
+    <table class="table table-bordered table-hover table-body table-hover table-condensed ">
+        <tr class="column-header">
+            <th class="colum-head-color">
+                First Name
             </th>
-            <th>
+            <th class="colum-head-color">
                 Last Name
             </th>
-           
+
             <th></th>
         </tr>
         @foreach (var modelitem in Model.ChildDetails)
@@ -34,10 +34,13 @@
                 <td>
                     @Html.DisplayFor(Model => modelitem.LastName)
                 </td>
-               
-                <td>
-                    @Html.ActionLink("Remove Child", "RemoveChild", "Member", new { id = modelitem.MemberId }, null)
-                </td>
+                @if (User.IsInRole("Admin"))
+                {
+
+                    <td>
+                        @Html.ActionLink("  ", "RemoveChild", "Member", new { id = modelitem.MemberId }, htmlAttributes: new { @class = "glyphicon glyphicon-trash btn btn-danger movie-one" })
+                    </td>
+                }
             </tr>
         }
     </table>
@@ -47,7 +50,42 @@
 </div>
 <p>
 
-    @Html.ActionLink("Back to List", "Index")|
-    @Html.ActionLink("Class Attendance", "GetAttendanceDate", "Attendance", new { id = Model.ChildrenClassId }, null)|
-    
+    @Html.ActionLink(" Back", "Index", null, htmlAttributes: new { @class = "glyphicon glyphicon-arrow-left btn btn-success" })|
+    @Html.ActionLink("Class Attendance", "GetAttendanceDate", "Attendance", new { id = Model.ChildrenClassId }, htmlAttributes: new { @class = " btn btn-primary" })
+
 </p>
+
+<style>
+    .column-header {
+        background-color: lightgrey;
+    }
+
+    .table-body {
+        box-shadow: 0 0 15px 0;
+    }
+
+    .colum-head-color {
+        color: indigo;
+        font-family: 'Global Monospace';
+        font-size: 2rem;
+    }
+
+    .class-header {
+        font-family: 'Global Monospace';
+        color: darkblue;
+    }
+
+    .member td {
+    }
+
+    #Search {
+        background-color: lightskyblue
+    }
+
+    .movie-one {
+    }
+
+    .two {
+        background-color: royalblue
+    }
+</style>
