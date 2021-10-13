@@ -18,8 +18,8 @@ namespace WinnersIndy.Data
 
         public virtual ChildrenClass ChildrenClass { get; set; }
 
-        //public ICollection<ChildrenClassAttendance> ChildrenAttendance { get; set; }
-        //public virtual ChildrenClassAttendance ChildrenClassAttendance { get; set; }
+        public ICollection<ChildrenClassAttendance> ChildrenAttendance { get; set; }
+        public virtual ChildrenClassAttendance ChildrenClassAttendance { get; set; }
 
         [Display(Name = "Attendance Date")]
         [DisplayFormat(DataFormatString = "{0:MMM, dd, yyyy}")]

@@ -57,7 +57,7 @@ namespace WinnersIndy.Services
                 {
                     ctx.Members.Add(entity);
                 }
-                ctx.Members.Add(entity);
+                //ctx.Members.Add(entity);
                 return ctx.SaveChanges() >= 1;
             }
 
