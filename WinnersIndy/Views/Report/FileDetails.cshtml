@@ -10,7 +10,7 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table table-body table-hover  table-bordered table-condensed">
-    <tr>
+    <tr class="colum-head-color">
         <th>
             @Html.DisplayNameFor(model => model.ReportPeriod)
         </th>
@@ -18,7 +18,7 @@
             @Html.DisplayNameFor(model => model.ServiceUnit)
         </th>
        
-        <th>
+        <th class="visible-lg">
             @Html.DisplayNameFor(model => model.TypeOfReport)
         </th>
         <th></th>
@@ -35,9 +35,9 @@
                 @Html.DisplayFor(modelItem => item.ServiceUnit)
             </td>
             
-            <th>
+            <td class="visible-lg">
                 @Html.DisplayFor(modelItem => item.TypeOfReport)
-            </th>
+            </td>
             <td>
                 @Html.ActionLink("Downlaod", "DownLoadFile", new { id = item.Id })
             </td>
@@ -63,6 +63,7 @@
         color: indigo;
         font-family: 'Global Monospace';
         font-size: 2rem;
+        background-color:gray
     }
 
     .class-header {

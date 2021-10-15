@@ -13,10 +13,14 @@ namespace WinnersIndy.Model
 {
     public class ReportCreate
     {
+      
         public DateTime ReportPeriod { get; set; }
+        [Display(Name = "Service Units")]
         public int ServiceUnitId { get; set; }
+        
         public SelectList ServiceUnits { get; set; }
         [Required, Range(1, 2, ErrorMessage = "Select form the List")]
+        [Display(Name ="Type of Report")]
         public ReportType TypeOfReport { get; set; }
        
         public HttpPostedFileBase File { get; set; }
