@@ -47,7 +47,7 @@
             First Name
         </th>
         <th class="colum-head-color ">
-            @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter }, new { @class = "glyphicon glyphicon-sort" })
+            @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter }, new { @class = "glyphicon glyphicon-sort sort" })
         </th>
         <th class="colum-head-color ">
             Phone Number
@@ -56,7 +56,7 @@
             Email Address
         </th>
         <th class="colum-head-color visible-lg ">
-            @Html.ActionLink("Date of Birth", "Index", new { sortOrder = ViewBag.DateSortParm }, new { @class = "glyphicon glyphicon-sort" })
+            @Html.ActionLink("Date of Birth", "Index", new { sortOrder = ViewBag.DateSortParm }, new { @class = "glyphicon glyphicon-sort sort" })
                 
         </th>
         <th class="colum-head-color visible-lg ">
@@ -110,12 +110,12 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
 
     .colum-head-color {
         color: indigo;
-        font-family: 'Global Monospace';
+        /* font-family: 'Global Monospace';*/
         font-size: 2rem;
     }
 
     .class-header {
-        font-family: 'Global Monospace';
+       /* font-family: 'Global Monospace';*/
         color: darkblue;
     }
 
@@ -129,5 +129,8 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
     }
     .two{
         background-color:royalblue
+    }
+    .Sort {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
 </style>

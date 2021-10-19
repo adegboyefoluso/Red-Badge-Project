@@ -124,5 +124,14 @@ namespace WinnersIndy.Controllers
             TempData["SaveResult"] = "Family  was deleted ";
             return RedirectToAction("Index");
         }
+        
+        [HttpGet]
+
+        public ActionResult GetFamilyCheckIn(string PhoneNumber)
+        {
+            var service = CreateFamilyService();
+            if (service.CheckInSheet(PhoneNumber) is null) return HttpNotFound();
+            return View(service.CheckInSheet(PhoneNumber));
+        }
     }
 }
