@@ -5,7 +5,7 @@
 Winners Indy is an application that  utilizes Asp.net mvc  to creating a database for a church. WINNERS INDY is a database that consist of all the members of Winners chapel Indianapolis. Winners Chapel Indianapolis, a branch of Living Faith Church Worldwide (also known as Winners Chapel) is an Evangelical charismatic Christian denomination and a megachurch. The headquarters is located in Ota, Nigeria. The organization has since become a global network of churches with congregations in over 65 countries.
 
 The Application consist of eleven Data Tables that uses relational database. These are is the list of the Tables 
--Member
+-[Member]
 -Family
 -Service Unit
 -Attendance
