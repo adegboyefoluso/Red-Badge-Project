@@ -55,10 +55,10 @@
                             @Html.CheckBoxFor(o => o.AttendanceSheetList[i].Inchurch, new { @inChurch = "InChurch_" + i })
                         </td>
 
-                        @*<td>
-                                                        @Html.DisplayFor(Model=>modelItem.MemberId)
+                        <td>
+                                                        @*@Html.DisplayFor(Model=>modelItem.MemberId)*@
                             @Html.HiddenFor(o => o.AttendanceSheetList[i].MemberId, new { @memberId = "PersonId_" + i })
-                        </td>*@
+                        </td>
                     </tr>
                     i++;
                 }

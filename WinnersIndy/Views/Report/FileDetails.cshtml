@@ -18,10 +18,10 @@
             @Html.DisplayNameFor(model => model.ServiceUnit)
         </th>
        
-        <th>
+        <th class="visible-lg">
             @Html.DisplayNameFor(model => model.TypeOfReport)
         </th>
-        <th></th>
+        
         <th></th>
     </tr>
 
@@ -35,15 +35,13 @@
                 @Html.DisplayFor(modelItem => item.ServiceUnit)
             </td>
             
-            <th>
+            <td class="visible-lg">
                 @Html.DisplayFor(modelItem => item.TypeOfReport)
-            </th>
-            <td>
-                @Html.ActionLink("Downlaod", "DownLoadFile", new { id = item.Id })
             </td>
+            
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Downlaod", "DownLoadFile", new { id = item.Id }) |
+               
                 @Html.ActionLink("Delete", "DeleteReport", new { id = item.Id })
             </td>
         </tr>

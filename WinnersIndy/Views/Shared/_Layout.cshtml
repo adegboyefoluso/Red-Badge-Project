@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body>
+<body class="body-Font">
     <div class="navbar navbar-inverse navbar-fixed-top ">
         <div class="container">
             <div class="navbar-header">
@@ -37,25 +37,36 @@
                                     <li>@Html.ActionLink("Service Unit", "Index", "ServiceUnit")</li>
                                     <li>@Html.ActionLink(" Reports", "FileDetails", "Report")</li>
                                     <li>@Html.ActionLink("Class Category", "Index", "ChildrenClass")</li>
-                                    
+
                                     <li>@Html.ActionLink("Submit Report", "Create", "Report")</li>
                                 </ul>
                             </div>
                         </li>
 
-                       
+
                     }
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    @if (User.IsInRole("Teacher") )
+                    @if (User.IsInRole("Teacher"))
                     {
 
                         <li>@Html.ActionLink("Class Category", "Index", "ChildrenClass")</li>
-                       
+
                         <li>@Html.ActionLink("Submit Report", "Create", "Report")</li>
 
                     }
                     @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                 </ul>
+
+                <div class="navbar-left" style="margin-top:8px;">
+                    @using (Html.BeginForm("GetFamilyCheckin", "Family", FormMethod.Get))
+                    {
+                        <ul class="nav navbar-nav">
+                            <li>@Html.TextBox("PhoneNumber", ViewBag.CurrentFilter as string)</li>
+                            <li><input type="submit" value="Search" /></li>
+                        </ul>
+                    }
+                </div>
+
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
@@ -76,5 +87,11 @@
 <style>
     .li {
         padding-top: 8px;
+    }
+    .men{
+        background-color:lightskyblue
+    }
+    .body-Font {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
 </style>

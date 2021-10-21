@@ -1,0 +1,79 @@
+﻿@model WinnersIndy.Model.FamilyModel.CheckInDetails
+
+@{
+    ViewBag.Title = "PrintCheckIn";
+}
+
+
+
+<div>
+    <hr />
+    <img src="~/Content/logo.jpg" />
+    <dl class="dl-horizontal">
+
+
+        <dd class="print">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+
+
+        <dd class=" print2">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckinDate)
+        </dd>
+        <p>
+
+        </p>
+
+    </dl>
+    <hr />
+    <br />
+    <br />
+
+    <img src="~/Content/logo.jpg" />
+    <dl class="dl-horizontal">
+
+
+        <dd class="print">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        @*<dt>
+                @Html.DisplayNameFor(model => model.LastName)
+            </dt>*@
+
+        <dd class="print2">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dd>
+                @Html.DisplayFor(model => model.Id)
+            </dd>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckinDate)
+        </dd>
+
+    </dl>
+</div>
+
+<style>
+    .print{
+        font-size:4rem;
+    }
+    .print2{font-size:3rem;
+        
+    }
+    img{
+        height:50px;
+        width:50px
+    }
+</style>

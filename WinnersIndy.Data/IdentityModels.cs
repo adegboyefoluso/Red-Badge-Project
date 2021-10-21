@@ -34,7 +34,7 @@ namespace WinnersIndy.Data
         }
         public DbSet<Member> Members { get; set; }
         public DbSet<Family> Families { get; set; }
-        
+        public DbSet<CheckIn>CheckIns { get; set; }
         public DbSet<Attendance> Attendances { get; set; }
         public DbSet<ChildrenClass> ChildrenClasses { get; set; }
         

@@ -18,7 +18,7 @@ namespace WinnersIndy.Common
             {
                 MailMessage message = new MailMessage();
                 SmtpClient smtp = new SmtpClient();
-                message.From = new MailAddress("foluso.o.adegboye@gmail.com");
+                message.From = new MailAddress("winnerindiana@gmail.com");
                 string[] multEmail = to.Split(';');
                 foreach (string item in multEmail)
                 {
@@ -33,7 +33,7 @@ namespace WinnersIndy.Common
                 smtp.Host = "smtp.gmail.com"; //for gmail host  
                 smtp.EnableSsl = true;
                 smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new NetworkCredential("foluso.o.adegboye@gmail.com", "Olasehinde1$");
+                smtp.Credentials = new NetworkCredential("winnerindiana@gmail.com", "Winners1$");
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtp.EnableSsl = true;
                 smtp.Send(message);

@@ -99,6 +99,9 @@
     <Compile Include="EmailFolder\EmailCreate.cs" />
     <Compile Include="FamilyModel\AddchildtoFamily.cs" />
     <Compile Include="FamilyModel\AddParentToFamily.cs" />
+    <Compile Include="FamilyModel\CheckInCreate.cs" />
+    <Compile Include="FamilyModel\CheckInDetails.cs" />
+    <Compile Include="FamilyModel\FamilyCheckIn.cs" />
     <Compile Include="FamilyModel\FamilyCreate.cs" />
     <Compile Include="FamilyModel\FamilyDetails.cs" />
     <Compile Include="FamilyModel\FamilyListItem.cs" />

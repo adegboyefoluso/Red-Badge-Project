@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attendance.cs" />
+    <Compile Include="CheckIn.cs" />
     <Compile Include="ChildrenClass.cs" />
     <Compile Include="ChildrenClassAttendance.cs" />
     <Compile Include="Contact.cs" />
@@ -68,6 +69,15 @@
     <Compile Include="IdentityUserRoleConfiguration.cs" />
     <Compile Include="Member.cs" />
     <Compile Include="MemberServiceUnit.cs" />
+    <Compile Include="Migrations\202110130026291_InitialCreate.cs" />
+    <Compile Include="Migrations\202110130026291_InitialCreate.designer.cs">
+      <DependentUpon>202110130026291_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110151809171_first.cs" />
+    <Compile Include="Migrations\202110151809171_first.designer.cs">
+      <DependentUpon>202110151809171_first.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Report.cs" />
     <Compile Include="ServiceUnit.cs" />
@@ -75,6 +85,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202110130026291_InitialCreate.resx">
+      <DependentUpon>202110130026291_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110151809171_first.resx">
+      <DependentUpon>202110151809171_first.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

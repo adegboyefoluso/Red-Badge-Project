@@ -125,6 +125,35 @@ namespace WinnersIndy.Services
 
             }
         }
+        public List<FamilyCheckIn> CheckInSheet(string phneNUmber)
+        {
+            using (var ctx= new ApplicationDbContext())
+            {
+                List<FamilyCheckIn> CheckIns = new List<FamilyCheckIn>();
+
+                var member = ctx
+                                 .Members
+                                 .FirstOrDefault(e => e.PhoneNumber == phneNUmber&&e.FamilyId!=null);
+                if (member is null) return null;
+
+                var family = ctx.Families.FirstOrDefault(e => e.FamilyId == member.FamilyId);
+                if (family is null) return null;
+                
+                foreach(var checkInDetail in family.FamilyMember)
+                {
+                    CheckIns.Add(new FamilyCheckIn
+                    {
+                        FirstName = checkInDetail.FirstName,
+                        LastName = checkInDetail.LastName,
+                        PhoneNumber = checkInDetail.PhoneNumber,
+                        MemberId = checkInDetail.MemberId,
+                        
+                    }); 
+                }
+                return CheckIns;
+            }
+        }
+
 
 
         //public FamilyDetails GetFamilyById(int familyid)
