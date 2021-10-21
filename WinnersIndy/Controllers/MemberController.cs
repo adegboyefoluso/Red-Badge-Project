@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.Identity;
+﻿ using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -133,11 +133,6 @@ namespace WinnersIndy.Controllers
                 DateOfBirth = model.DateOfBirth,
                 EmailAddress = model.EmailAddress,
                 FileContent = model.FileContent,
-                
-
-
-
-
             };
             return View(modelupdate);
         }
@@ -289,28 +284,6 @@ namespace WinnersIndy.Controllers
 
 
 
-
-
-        //GET:GetTeachers
-        //public ActionResult GetTeachers()
-        //{
-        //    var services = CrteateMemberService();
-        //    return View(services.GetTeachers());
-        //}
-
-        ////GET:AddTeacherToClass
-        //public ActionResult AddTeacherToClass(int id)
-        //{
-        //    var service = CrteateMemberService();
-        //    var model = new AddChild
-        //    {
-        //        MemberId = id,
-        //        ChildrenClasses = service.GetDropdown(),
-        //    };
-        //    return View(model);
-        //}
-        //POST:AddTeacherToClass
-
         [HttpPost]
         [ValidateAntiForgeryToken]
 
@@ -346,7 +319,7 @@ namespace WinnersIndy.Controllers
 
             var services = CrteateMemberService();
             var member = services.GetMemberById(id);
-            string from = "foluso.o.adegboye@gmail.com";
+            string from = "winnerindiana@gmail.com";
             string messg = String.Format($"Dear  {member.FirstName}<br/>\n" +
                 $"Turnaround greetings to you in the name of the Lord Jesus christ<br/>\n" +
                 $"We just like to reach out to yoiuy and find out that you are not in church yesterday");

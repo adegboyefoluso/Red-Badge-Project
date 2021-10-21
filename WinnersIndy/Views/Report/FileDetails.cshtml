@@ -21,7 +21,7 @@
         <th class="visible-lg">
             @Html.DisplayNameFor(model => model.TypeOfReport)
         </th>
-        <th></th>
+        
         <th></th>
     </tr>
 
@@ -38,12 +38,10 @@
             <td class="visible-lg">
                 @Html.DisplayFor(modelItem => item.TypeOfReport)
             </td>
+            
             <td>
-                @Html.ActionLink("Downlaod", "DownLoadFile", new { id = item.Id })
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Downlaod", "DownLoadFile", new { id = item.Id }) |
+               
                 @Html.ActionLink("Delete", "DeleteReport", new { id = item.Id })
             </td>
         </tr>
