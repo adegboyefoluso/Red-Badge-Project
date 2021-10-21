@@ -223,6 +223,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="App_Browsers\qt.browser" />
     <None Include="Properties\PublishProfiles\WinnersIndy - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\WinnersIndy - Web Deploy1.pubxml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
@@ -300,7 +301,6 @@
     <Content Include="Views\Contact\Create.cshtml" />
     <Content Include="Views\FirstTimer\Index.cshtml" />
     <Content Include="Views\FirstTimer\Create.cshtml" />
-    <Content Include="Views\Member\SendEmail.cshtml" />
     <Content Include="Views\Member\AddMemberToServiceUnit.cshtml" />
     <Content Include="Views\ServiceUnit\Index.cshtml" />
     <Content Include="Views\ServiceUnit\Create.cshtml" />
